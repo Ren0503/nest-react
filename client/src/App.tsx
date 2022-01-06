@@ -5,6 +5,7 @@ import api from 'src/utils/api';
 import history from 'src/utils/history';
 import Routes from './routes';
 import GlobalStyles from 'src/styles/global';
+
 const App = () => {
     return (
         <ApolloProvider client={api}>

@@ -1,8 +1,8 @@
 import { Repository } from 'typeorm';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import Message from 'src/db/models/message.entity';
-import User from 'src/db/models/user.entity';
+import Message from '../db/models/message.entity';
+import User from '../db/models/user.entity';
 
 @Injectable()
 export class RepoService {

@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { MessageResolver } from './message.resolver';
+import MessageResolver from './message.resolver';
 
 describe('MessageResolver', () => {
   let resolver: MessageResolver;

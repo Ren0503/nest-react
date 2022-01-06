@@ -1,8 +1,8 @@
-import { InMemoryCache, NormalizedCacheObject } from '@apollo/react-hooks';
-import ApolloClient from 'apollo-boost';
+import { ApolloClient, InMemoryCache } from '@apollo/client'
 
-const api = new ApolloClient<NormalizedCacheObject>({
+const client = new ApolloClient({
     uri: 'http://localhost:4000/graphql',
+    cache: new InMemoryCache()
 });
 
-export default api;
+export default client;

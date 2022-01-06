@@ -1,4 +1,3 @@
-
 import { Field, ObjectType } from '@nestjs/graphql';
 import {
     Entity,
@@ -12,7 +11,7 @@ import {
 import User from './user.entity';
 
 @ObjectType()
-@Entity({ name: 'messages' })
+@Entity('messages')
 export default class Message {
     @Field()
     @PrimaryGeneratedColumn()

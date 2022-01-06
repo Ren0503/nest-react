@@ -2,15 +2,17 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type User {
+  id: Float!
+  email: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
 """
 A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
 """
 scalar DateTime
-
-input DeleteMessageInput {
-  id: Float!
-  userId: Float!
-}
 
 type Message {
   id: Float!
@@ -21,17 +23,6 @@ type Message {
   user: User!
 }
 
-input MessageInput {
-  content: String!
-  userId: Float!
-}
-
-type Mutation {
-  createOrLoginUser(data: UserInput!): User!
-  createMessage(data: MessageInput!): Message!
-  deleteMessage(data: DeleteMessageInput!): Message!
-}
-
 type Query {
   getUsers: [User!]!
   getUser(id: Float!): User
@@ -40,17 +31,26 @@ type Query {
   getMessage(id: Float!): Message
 }
 
-type Subscription {
-  messageAdded: Message!
-}
-
-type User {
-  id: Float!
-  email: String!
-  createdAt: DateTime!
-  updatedAt: DateTime!
+type Mutation {
+  createOrLoginUser(data: UserInput!): User!
+  createMessage(data: MessageInput!): Message!
+  deleteMessage(data: DeleteMessageInput!): Message!
 }
 
 input UserInput {
   email: String!
+}
+
+input MessageInput {
+  content: String!
+  userId: Float!
+}
+
+input DeleteMessageInput {
+  id: Float!
+  userId: Float!
+}
+
+type Subscription {
+  messageAdded: Message!
 }

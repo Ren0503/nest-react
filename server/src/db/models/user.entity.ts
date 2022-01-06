@@ -1,16 +1,16 @@
 import { Field, ObjectType } from '@nestjs/graphql';
-import { 
-    Column, 
-    CreateDateColumn, 
-    Entity, 
-    OneToMany, 
-    PrimaryGeneratedColumn, 
-    UpdateDateColumn
+import {
+    Column,
+    CreateDateColumn,
+    Entity,
+    OneToMany,
+    PrimaryGeneratedColumn,
+    UpdateDateColumn,
 } from 'typeorm';
 import Message from './message.entity';
 
 @ObjectType()
-@Entity({ name: 'users' })
+@Entity('users')
 export default class User {
     @Field()
     @PrimaryGeneratedColumn()
@@ -25,12 +25,13 @@ export default class User {
     createdAt: Date;
 
     @Field()
-    @UpdateDateColumn({ name: 'updatedAt' })
+    @UpdateDateColumn({ name: 'updated_at' })
     updatedAt: Date;
 
+    // Associations
     @OneToMany(
         () => Message,
-        message => message.userConnection
+        message => message.userConnection,
     )
-    messageConnection: Promise<Message[]>
+    messageConnection: Promise<Message[]>;
 }
